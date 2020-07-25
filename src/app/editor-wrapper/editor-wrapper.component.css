@@ -1,0 +1,17 @@
+.medium-editor-element {
+    background: #fefefe; 
+    padding: 8px;
+    border-color: #555;
+}
+
+@media screen and (min-width: 1024px) {
+    .medium-editor-element {
+        width: 780px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .medium-editor-element {
+        width: 520px;
+    }
+}

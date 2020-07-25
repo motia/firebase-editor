@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
+import { MatButtonModule, MatIconModule, MatInputModule, MatCardModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule, MatIconModule, MatInputModule, MatCardModule,
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../shared/authentication.service';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-login-page',
@@ -8,8 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-  email: string = 'ok@me.com';
-  password: string;
+  email: string = '';
+  password: string = '';
+  error = new BehaviorSubject('');
+  
+  hide = true;
 
   ngOnInit(){}
 
@@ -17,12 +21,20 @@ export class LoginPageComponent implements OnInit {
   constructor(public router: Router, public authenticationService: AuthenticationService) { }
 
   async onSubmit(submitter: string) {
-    console.log({submitter})
-    if (submitter === 'signin') {
-      await this.signIn();
-    } else {
-      await this.signUp();
+    try {
+      if (submitter === 'signin') {
+        await this.signIn();
+      } else {
+        await this.signUp();
+      }
+    } catch (e) {
+      if (e.code && e.code.startsWith('auth/') && e.message) {
+        this.error.next(e.message)
+      }
+      this.error.next((submitter === 'signin' ? 'Login' : 'Sign up') + ' has failed');
+      throw e;
     }
+
     this.goToEditor(true);
   }
 
