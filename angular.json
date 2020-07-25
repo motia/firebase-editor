@@ -24,9 +24,14 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/medium-editor/dist/css/medium-editor.min.css",
+              "node_modules/medium-editor/dist/css/themes/default.css",
+              "node_modules/katex/dist/katex.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/medium-editor/dist/js/medium-editor.min.js"
+            ]
           },
           "configurations": {
             "production": {

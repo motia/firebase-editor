@@ -1,0 +1,24 @@
+<form
+  *ngIf="!(authenticationService.userData | async)"
+  #loginForm="ngForm"
+  (ngSubmit)="onSubmit($event.submitter.name)"
+>
+  <input type="email" [(ngModel)]="email"
+    name="email"
+    placeholder="email"
+  >
+  <input type="password" [(ngModel)]="password"
+    name="password"
+    placeholder="password"
+  >
+
+  <input name="signup" value="Sign up" type="submit">
+
+  <button name="signin" value="Login" type="submit">Login</button>
+</form>
+
+<div *ngIf="authenticationService.userData | async">
+<h1>Hello {{ (authenticationService.userData | async)?.email }}</h1>
+<button (click)="goToEditor()">Continue</button>
+<button (click)="signOut()">Logout</button>
+</div>
