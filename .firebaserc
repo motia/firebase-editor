@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "educ-sample": {
+      "hosting": {
+        "firebase-editor": [
+          "educ-sample"
+        ]
+      }
+    }
+  }
+}
