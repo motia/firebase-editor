@@ -87,7 +87,7 @@ export default MediumEditor.Extension.extend({
         previousMatchSuccess = false;
         continue;
       }
-      this.createAutoTex(matchingTextNodes, matches[matchIndex].tex);
+      this.createKatex(matchingTextNodes, matches[matchIndex].tex);
     }
     return linkCreated;
   },
